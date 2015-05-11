@@ -1,0 +1,23 @@
+<h1>Get Stuff Done</h1>
+
+
+<% @tasks.not_done().each do |task| %>
+<li><%= task.description %> <a href="/tasks/<%= task.id() %>/edit">Update this task's description</a></li>
+<% end %>
+<br>
+<% @tasks.each() do |task| %>
+<li><%= task.description %> <a href="/tasks/<%= task.id() %>/edit">Update this task's description</a></li>
+<% end %>
+
+<form action = "/save/task" method="post">
+  <div class="form-group">
+    <label for="task">Enter Task</label>
+    <input type="text" id="task" name="task" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">+ Task</button>
+
+</form>
+
+
+<a href="/list/add" role="button" class="btn btn-primary">We Need More Lists</a>
